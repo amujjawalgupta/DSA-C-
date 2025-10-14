@@ -28,6 +28,7 @@ void reverseArray(int arr[], int size){
     
 }
 
+// swaping Largest and smallest numbers of an array
 void swapMaxMin(int arr[], int size){
     int largest = INT_MIN;
     int smallest = INT_MAX;
@@ -55,13 +56,36 @@ void swapMaxMin(int arr[], int size){
     swap(arr[indLarg], arr[indSmall]);
 }
 
-int main(){
-    int num[] = {2,3,4,6,1,8};
-    swapMaxMin(num, 6);
-    for (int i = 0; i < 6; i++)
+//print unique value
+void uniqueValue(int arr[], int size){
+    for (int i = 0; i < size; i++)
     {
-        cout<<num[i]<<" ";
+        int unique = 0;
+        for (int j = 0; j < size; j++)
+        {
+            if (arr[i] == arr[j])
+            {
+                unique ++;
+            }
+            
+        }
+        if (unique < 2)
+        {
+            cout<<arr[i]<<" ";
+        }
+        
     }
+    
+}
+//interection of two array
+
+int main(){
+    int num[] = {2,2,3,4,5,4};
+    uniqueValue(num, 6);
+    // for (int i = 0; i < 6; i++)
+    // {
+    //     cout<<num[i]<<" ";
+    // }
     
     return 0;
 

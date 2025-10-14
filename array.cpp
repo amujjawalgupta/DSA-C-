@@ -2,34 +2,6 @@
 #include <climits>
 using namespace std;
 
-//find smallest 
-int smallestArray(int arr[], int size){
-        int smallest = INT_MAX;
-        for (int i = 0; i < size; i++)
-        {
-            if (arr[i] < smallest)
-            {
-                smallest = arr[i];
-            }
-            
-        }
-    return smallest;
-}
-
-// find largest
-int largestArray(int arr[], int size){
-        int largest = INT_MIN;
-        for (int i = 0; i < size; i++)
-        {
-            if (arr[i] > largest)
-            {
-                largest = arr[i];
-            }
-            
-        }
-    return largest;
-}
-
 // linear search 
 // find the target and print index
 int targetArray(int arr[], int size, int target){
@@ -56,10 +28,37 @@ void reverseArray(int arr[], int size){
     
 }
 
+void swapMaxMin(int arr[], int size){
+    int largest = INT_MIN;
+    int smallest = INT_MAX;
+    int indSmall, indLarg;
+    
+    // finding smallest
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] < smallest)
+        {
+            smallest = arr[i];
+            indSmall = i;
+        }
+    }
+
+    // findinglargest
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] > largest)
+        {
+            largest = arr[i];
+            indLarg = i;
+        }
+    }
+    swap(arr[indLarg], arr[indSmall]);
+}
+
 int main(){
-    int num[] = {2,4,5,3,-3};
-    reverseArray(num, 5);
-    for (int i = 0; i < 5; i++)
+    int num[] = {2,3,4,6,1,8};
+    swapMaxMin(num, 6);
+    for (int i = 0; i < 6; i++)
     {
         cout<<num[i]<<" ";
     }
